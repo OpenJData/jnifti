@@ -466,7 +466,7 @@ One can also apply data compression to reduce file size. In this case
        "_ArrayType_": "datatype",
        "_ArraySize_": [Nx,Ny,Nz],
        "_ArrayZipType_": "zlib",
-       "_ArrayZipSize_": [Nx,Ny,Nz],
+       "_ArrayZipSize_": [1, Nw],
        "_ArrayZipData_": "<base64-encoded zlib-compressed byte stream>"
  }
 ```
@@ -481,16 +481,16 @@ header defined in the JData specification, the binary storage of the direct-form
 array can be efficiently written as
 
 ```   
-[U][10][NIFTIData] [[] [$][datatype][#] [[] [$][l][#][3][Nx][Ny][Nz] [v_111,v_112,...,v_121,v_122,...,v_NxNyNz]
-|----------------| |-----------------------------------------------| |----------------------------------------|
-      name          optimized array container header for N-D array    row-major-order serialized N-D array data
+[U][9][NIFTIData] [[] [$][datatype][#] [[] [$][l][#][3][Nx][Ny][Nz] [v_111,v_112,...,v_121,v_122,...,v_NxNyNz]
+|---------------| |-----------------------------------------------| |----------------------------------------|
+      name         optimized array container header for N-D array    row-major-order serialized N-D array data
 ```
 
 Data compression can also be applied to the binary JNIfTI `NIFTIData` if
 one convers the above corresponding annotated array form into UBJSON.
 For example, for a `uint8` formatted 256x256x256 3D volume, one can write as
 ```
-[U][10][NIFTIData]
+[U][9][NIFTIData]
 [[]
     [U][11][_ArrayType_][S][U][5][uint8]
     [U][11][_ArraySize_]
@@ -500,9 +500,9 @@ For example, for a `uint8` formatted 256x256x256 3D volume, one can write as
     [U][14][_ArrayZipType_][S][U][4][zlib]
     [U][14][_ArrayZipSize_]
     [[]
-       [U][256][U][256][U][256]
+       [U][1][I][16777216]
     []]
-    [U][14][_ArrayZipData_][H][L][lengh][... zlib-compressed byte stream ...]
+    [U][14][_ArrayZipData_][H][I][16777216][... zlib-compressed byte stream ...]
 []]
 ```
 

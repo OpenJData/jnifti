@@ -500,9 +500,9 @@ For example, for a `uint8` formatted 256x256x256 3D volume, one can write as
     [U][14][_ArrayZipType_][S][U][4][zlib]
     [U][14][_ArrayZipSize_]
     [[]
-       [U][1][I][16777216]
+       [U][1][l][16777216]
     []]
-    [U][14][_ArrayZipData_][H][I][16777216][... zlib-compressed byte stream ...]
+    [U][14][_ArrayZipData_][H][l][16777216][... zlib-compressed byte stream ...]
 []]
 ```
 

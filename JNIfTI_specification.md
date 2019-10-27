@@ -257,7 +257,7 @@ corresponding JNIfTI `NIFTIHeader` self-explanatory subfields
 |` char `|` char `|` aux_file[24];  `|  **Auxiliary filename**       |`    "AuxFile": "s",		    `|
 |` short`|` int  `|` qform_code ;   `|  **NIFTI_XFORM_\* code**      |`    "QForm": <i>,		    `|
 |` short`|` int  `|` sform_code ;   `|  **NIFTI_XFORM_\* code**      |`    "SForm": <i>,		    `|
-|` float`|`double`|` quatern_b ;    `|  **Quaternion b param**       |`    "Quatern": { "b"=<f>,	    `|
+|` float`|`double`|` quatern_b ;    `|  **Quaternion b param**       |`    "Quatern": { "b":<f>,	    `|
 |` float`|`double`|` quatern_c ;    `|  **Quaternion c param**       |`        "c": <f>,		    `|
 |` float`|`double`|` quatern_d ;    `|  **Quaternion d param**       |`        "d": <f> 		    `|
 |        | 	  | 		     |	 			     |`     },  			    `|
